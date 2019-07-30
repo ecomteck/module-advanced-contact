@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ecomteck
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Ecomteck.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.ecomteck.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Ecomteck
+ * @package     Ecomteck_AdvancedContact
+ * @copyright   Copyright (c) Ecomteck (https://www.ecomteck.com/)
+ * @license     https://www.ecomteck.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Ecomteck_AdvancedContact::section"
+			 title="Advanced Contact"
+			 module="Ecomteck_AdvancedContact"
+			 sortOrder="200"
+			 parent="Magento_Backend::content"
+			 resource="Ecomteck_AdvancedContact::section" />
+		<add id="Ecomteck_AdvancedContact::requests"
+			 title="Requests"
+			 module="Ecomteck_AdvancedContact"
+			 sortOrder="10"
+			 parent="Ecomteck_AdvancedContact::section"
+			 action="advanced_contact/requests"
+			 resource="Ecomteck_AdvancedContact::requests" />
+		<add id="Ecomteck_AdvancedContact::configuration"
+			 title="Configuration"
+			 module="Ecomteck_AdvancedContact"
+			 sortOrder="20"
+			 parent="Ecomteck_AdvancedContact::section"
+			 action="adminhtml/system_config/edit/section/contact/"
+			 resource="Magento_Contact::contact" />
+	</menu>
+</config>

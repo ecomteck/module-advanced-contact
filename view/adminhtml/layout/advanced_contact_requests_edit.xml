@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ecomteck
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Ecomteck.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.ecomteck.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Ecomteck
+ * @package     Ecomteck_AdvancedContact
+ * @copyright   Copyright (c) Ecomteck (https://www.ecomteck.com/)
+ * @license     https://www.ecomteck.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="admin-2columns-left">
+	<body>
+		<referenceContainer name="left">
+			<block class="Ecomteck\AdvancedContact\Block\Adminhtml\Requests\Edit\Tabs" name="advanced_contact_requests_edit_tabs"/>
+		</referenceContainer>
+		<referenceContainer name="content">
+			<block class="Ecomteck\AdvancedContact\Block\Adminhtml\Requests\Edit" name="advanced_contact_requests_edit"/>
+		</referenceContainer>
+	</body>
+</page>

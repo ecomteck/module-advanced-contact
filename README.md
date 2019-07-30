@@ -1,4 +1,4 @@
-# Magento 2 Product Questions
+# Magento 2 Advanced Contact
 Magento 2 Advanced Contact extension is an awesome module for Magento 2. 
 It allows administrator add more custom fields to contact form.
 ## Highlight features for for Product Questions
