@@ -61,7 +61,7 @@ class Save extends Action
     {
         $data = $this->getRequest()->getPostValue();
         $resultRedirect = $this->resultRedirectFactory->create();
-        $id = $this->getRequest()->getParam('id');
+        $id = $this->getRequest()->getParam('contact_id');
         $model = $this->_objectManager->create(\Ecomteck\AdvancedContact\Model\Request::class);
         if ($id) {
             $model->load($id);
@@ -71,7 +71,7 @@ class Save extends Action
             $model->save();
             $this->messageManager->addSuccess(__('Saved.'));
             if ($this->getRequest()->getParam('back')) {
-                return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
+                return $resultRedirect->setPath('*/*/edit', ['contact_id' => $model->getId(), '_current' => true]);
             }
             $this->_objectManager->get(\Magento\Backend\Model\Session::class)->setFormData(false);
             return $resultRedirect->setPath('*/*/');
@@ -79,7 +79,7 @@ class Save extends Action
             $this->messageManager->addException($e, __('Something went wrong.'));
         }
         $this->_getSession()->setFormData($data);
-        return $resultRedirect->setPath('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
+        return $resultRedirect->setPath('*/*/edit', ['contact_id' => $this->getRequest()->getParam('contact_id')]);
     }
 
     /**

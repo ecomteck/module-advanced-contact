@@ -46,7 +46,7 @@ interface RequestInterface
     /**
      * Get info
      *
-     * @return string|null
+     * @return \Ecomteck\AdvancedContact\Api\Data\InfoInterface[]
      */
     public function getInfo();
 
@@ -82,7 +82,7 @@ interface RequestInterface
     /**
      * Set info
      *
-     * @param string $info
+     * @param \Ecomteck\AdvancedContact\Api\Data\InfoInterface[] $info
      * @return \Ecomteck\AdvancedContact\Api\Data\RequestInterface
      */
     public function setInfo($info);

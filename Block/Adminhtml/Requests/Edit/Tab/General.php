@@ -82,9 +82,9 @@ class General extends Generic implements TabInterface
  
         if ($model->getId()) {
             $fieldset->addField(
-                'id',
+                'contact_id',
                 'hidden',
-                ['name' => 'id']
+                ['name' => 'contact_id']
             );
         }
         $info = $model->getData('info');

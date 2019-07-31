@@ -22,17 +22,17 @@
 namespace Ecomteck\AdvancedContact\Api;
 
 /**
- * Interface ContactRepositoryInterface
+ * Interface RequestRepositoryInterface
  * @package Ecomteck\AdvancedContact\Api
  */
-interface ContactRepositoryInterface
+interface RequestRepositoryInterface
 {
     /**
-     * Send contact.
+     * Send And Save request.
      *
-     * @param \Ecomteck\AdvancedContact\Api\Data\ContactInterface $contact
-     * @return \Ecomteck\AdvancedContact\Api\Data\ContactInterface
+     * @param \Ecomteck\AdvancedContact\Api\Data\RequestInterface $request
+     * @return \Ecomteck\AdvancedContact\Api\Data\RequestInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function sendContact(\Ecomteck\AdvancedContact\Api\Data\ContactInterface $contact);
+    public function save(\Ecomteck\AdvancedContact\Api\Data\RequestInterface $request);
 }

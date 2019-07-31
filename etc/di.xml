@@ -21,10 +21,12 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Ecomteck\AdvancedContact\Api\Data\ContactInterface"
-                type="Ecomteck\AdvancedContact\Model\Contact" />
-    <preference for="Ecomteck\AdvancedContact\Api\ContactRepositoryInterface"
-                type="Ecomteck\AdvancedContact\Model\ContactRepository" />
+    <preference for="Ecomteck\AdvancedContact\Api\Data\RequestInterface"
+                type="Ecomteck\AdvancedContact\Model\Request" />
+    <preference for="Ecomteck\AdvancedContact\Api\Data\InfoInterface"
+                type="Ecomteck\AdvancedContact\Model\Info" />
+    <preference for="Ecomteck\AdvancedContact\Api\RequestRepositoryInterface"
+                type="Ecomteck\AdvancedContact\Model\RequestRepository" />
 
     <preference for="Magento\Contact\Block\ContactForm" type="Ecomteck\AdvancedContact\Block\ContactForm" />
     <type name="Magento\Contact\Block\ContactForm">

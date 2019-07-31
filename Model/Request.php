@@ -37,7 +37,7 @@ class Request extends AbstractModel implements RequestInterface
     /**
      * Get info
      *
-     * @return string|null
+     * @return \Ecomteck\AdvancedContact\Api\Data\InfoInterface[]
      */
     public function getInfo()
     {
