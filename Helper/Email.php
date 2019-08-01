@@ -53,7 +53,7 @@ class Email extends \Ecomteck\AdvancedContact\Helper\Data
      * @param \Ecomteck\AdvancedContact\Model\Request $request
      * @param int $storeId
      */
-    public function recive(\Ecomteck\AdvancedContact\Model\Request $request, $storeId = 0)
+    public function receive(\Ecomteck\AdvancedContact\Model\Request $request, $storeId = 0)
     {
         $to = $this->getConfig('advanced_contact/send_to');
         if ((bool)$to !== false) {

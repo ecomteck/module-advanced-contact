@@ -30,7 +30,7 @@
 	</argument>
 	<dataSource name="sy_contact_requests_data_source">
 		<argument name="dataProvider" xsi:type="configurableObject">
-			<argument name="class" xsi:type="string">AdvancedContactRequestsGridDataProvider</argument>
+			<argument name="class" xsi:type="string">Ecomteck\AdvancedContact\Ui\Component\Listing\RequestDataProvider</argument>
 			<argument name="name" xsi:type="string">advanced_contact_requests_data_source</argument>
 			<argument name="primaryFieldName" xsi:type="string">contact_id</argument>
 			<argument name="requestFieldName" xsi:type="string">contact_id</argument>

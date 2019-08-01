@@ -27,4 +27,11 @@
             <resource ref="anonymous" />
         </resources>
     </route>
+
+    <route url="/V1/contact/get/fields" method="GET">
+        <service class="Ecomteck\AdvancedContact\Api\RequestRepositoryInterface" method="getListFields"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
 </routes>

@@ -128,7 +128,7 @@ class RequestRepository implements \Ecomteck\AdvancedContact\Api\RequestReposito
             try {
                 $requestModel->save();
                 if ($requestModel->getId()) {
-                    $this->email->recive($requestModel, $storeId);
+                    $this->email->receive($requestModel, $storeId);
                     $this->messageManager->addSuccess(__('Thanks for contacting us with your comments and questions. We\'ll respond to you very soon.'));
                 }
             } catch (\Exception $exception) {
@@ -138,5 +138,41 @@ class RequestRepository implements \Ecomteck\AdvancedContact\Api\RequestReposito
                 );
             }
         }
+    }
+
+    /**
+     * get list fields
+     *
+     * @return string|void
+     * @throws CouldNotSaveException
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getListFields()
+    {
+        $storeId = $this->storeManager->getStore()->getId();
+        $fields = $this->helperData->getConfig('advanced_contact/fields', $storeId);
+        $fields = $this->json->unserialize($fields);
+
+        $info = [];
+        if (count($fields)>0) {
+            foreach ($fields as $field) {
+                try {
+                        $info[] = [
+                            'field_name'  => $field['key'],
+                            'field_label' => $field['label'],
+                            'field_type'  => $field['field_type']
+                        ];
+                } catch (\Exception $e) {
+                    throw new CouldNotSaveException(
+                        __('Could not get any fields form: %1', $e->getMessage()),
+                        $e
+                    );
+                }
+            }
+        }
+
+        $result = json_encode($info);
+        header('Content-Type: application/json');
+        die($result);
     }
 }

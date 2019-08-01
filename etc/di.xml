@@ -41,12 +41,6 @@
             </argument>
         </arguments>
     </virtualType>
-    <virtualType name="AdvancedContactRequestsGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
-        <arguments>
-            <argument name="collection" xsi:type="object" shared="false">Ecomteck\AdvancedContact\Model\ResourceModel\Request\Collection</argument>
-            <argument name="filterPool" xsi:type="object" shared="false">AdvancedContactRequestsGridFilterPool</argument>
-        </arguments>
-    </virtualType>
     <virtualType name="Ecomteck\AdvancedContact\Model\ResourceModel\Request\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">ecomteck_advanced_contact</argument>

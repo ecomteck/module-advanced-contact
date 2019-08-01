@@ -35,4 +35,11 @@ interface RequestRepositoryInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function save(\Ecomteck\AdvancedContact\Api\Data\RequestInterface $request);
+
+    /**
+     * get list fields for contact form
+     *
+     * @return string
+     */
+    public function getListFields();
 }
