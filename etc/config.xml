@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ecomteck
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Ecomteck.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.ecomteck.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Ecomteck
+ * @package     Ecomteck_AdvancedContact
+ * @copyright   Copyright (c) Ecomteck (https://www.ecomteck.com/)
+ * @license     https://www.ecomteck.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<contact>
+			<advanced_contact>
+				<advanced_contact_active>1</advanced_contact_active>
+				<email_template>ecomteck_advanced_contact_general_email_template</email_template>
+				<fields>[{"key":"email","label":"E-Mail","field_class":"required validate-email","field_type":"email"},{"key":"message","label":"Message","field_class":"required","field_type":"textarea"}]</fields>
+				<send_to>ecomteck@gmail.com</send_to>
+			</advanced_contact>
+		</contact>
+	</default>
+</config>

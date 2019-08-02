@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ecomteck
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Ecomteck.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.ecomteck.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Ecomteck
+ * @package     Ecomteck_AdvancedContact
+ * @copyright   Copyright (c) Ecomteck (https://www.ecomteck.com/)
+ * @license     https://www.ecomteck.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Ecomteck\AdvancedContact\Api\Data\RequestInterface"
+                type="Ecomteck\AdvancedContact\Model\Request" />
+    <preference for="Ecomteck\AdvancedContact\Api\Data\InfoInterface"
+                type="Ecomteck\AdvancedContact\Model\Info" />
+    <preference for="Ecomteck\AdvancedContact\Api\RequestRepositoryInterface"
+                type="Ecomteck\AdvancedContact\Model\RequestRepository" />
+
+    <preference for="Magento\Contact\Block\ContactForm" type="Ecomteck\AdvancedContact\Block\ContactForm" />
+    <type name="Magento\Contact\Block\ContactForm">
+        <plugin name="advanced_contact_form_template" type="Ecomteck\AdvancedContact\Plugin\ContactForm" sortOrder="1" />
+    </type>
+    <preference for="Ecomteck\AdvancedContact\Api\Data\RequestInterface" type="Ecomteck\AdvancedContact\Model\Request" />
+    <virtualType name="AdvancedContactGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Ecomteck\AdvancedContact\Model\ResourceModel\Request\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ecomteck_advanced_contact</argument>
+            <argument name="resourceModel" xsi:type="string">Ecomteck\AdvancedContact\Model\ResourceModel\Request</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="advanced_contact_requests_data_source" xsi:type="string">Ecomteck\AdvancedContact\Model\ResourceModel\Request\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
