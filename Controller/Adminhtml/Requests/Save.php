@@ -87,6 +87,6 @@ class Save extends Action
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Ecomteck_AdvancedContact::requests');
+        return $this->_authorization->isAllowed('Ecomteck_AdvancedContact::request_save');
     }
 }
