@@ -1,0 +1,41 @@
+"Update Request","Update Request"
+"Update and Continue Edit","Update and Continue Edit"
+"Edit Request '%1'","Edit Request '%1'"
+"New Request","New Request"
+Contact,Contact
+Info,Info
+Closed,Closed
+Yes,Yes
+No,No
+Created,Created
+Updated,Updated
+Request,Request
+Key,Key
+Label,Label
+"Field Class","Field Class"
+Type,Type
+Add,Add
+Edit,Edit
+Saved.,Saved.
+"Something went wrong.","Something went wrong."
+"Thanks for contacting us with your comments and questions. We'll respond to you very soon.","Thanks for contacting us with your comments and questions. We'll respond to you very soon."
+Customer,Customer
+"Could not get any fields form: %1","Could not get any fields form: %1"
+"Could not save and sent contact: %1","Could not save and sent contact: %1"
+"Write Us","Write Us"
+"Jot us a note and we’ll get back to you as quickly as possible.","Jot us a note and we’ll get back to you as quickly as possible."
+Submit,Submit
+Requests,Requests
+Contacts,Contacts
+"Advanced Contact","Advanced Contact"
+Active,Active
+Fields,Fields
+"Email Template","Email Template"
+"Send To","Send To"
+"Manager Email to Receive New Requests","Manager Email to Receive New Requests"
+20,20
+30,30
+50,50
+100,100
+200,200
+"Contact ID","Contact ID"
