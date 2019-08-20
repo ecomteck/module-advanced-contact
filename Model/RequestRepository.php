@@ -143,7 +143,7 @@ class RequestRepository implements \Ecomteck\AdvancedContact\Api\RequestReposito
     /**
      * get list fields
      *
-     * @return string|void
+     * @return array|void
      * @throws CouldNotSaveException
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
@@ -158,8 +158,9 @@ class RequestRepository implements \Ecomteck\AdvancedContact\Api\RequestReposito
             foreach ($fields as $field) {
                 try {
                         $info[] = [
-                            'field_name'  => $field['key'],
-                            'field_label' => $field['label'],
+                            'key'  => $field['key'],
+                            'label' => $field['label'],
+                            'class'  => $field['field_class'],
                             'field_type'  => $field['field_type']
                         ];
                 } catch (\Exception $e) {
@@ -171,8 +172,6 @@ class RequestRepository implements \Ecomteck\AdvancedContact\Api\RequestReposito
             }
         }
 
-        $result = json_encode($info);
-        header('Content-Type: application/json');
-        die($result);
+        return $info;
     }
 }
