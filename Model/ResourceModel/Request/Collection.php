@@ -28,6 +28,25 @@ use \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
  */
 class Collection extends AbstractCollection
 {
+    /**
+     * Event prefix
+     *
+     * @var string
+     */
+    protected $_eventPrefix = 'ecomteck_advanced_contact_collection';
+
+    /**
+     * Event object
+     *
+     * @var string
+     */
+    protected $_eventObject = 'advanced_contact_collection';
+
+    /**
+     * Define resource model
+     *
+     * @return void
+     */
     protected function _construct()
     {
         $this->_init(
