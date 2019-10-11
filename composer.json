@@ -2,8 +2,7 @@
     "name": "ecomteck/module-advanced-contact",
     "description": "Ecomteck Advanced Contact",
     "require": {
-        "magento/module-contact": "*",
-        "ecomteck/module-core": "*"
+        "magento/module-contact": "*"
     },
     "keywords": [
         "ecomteck",
