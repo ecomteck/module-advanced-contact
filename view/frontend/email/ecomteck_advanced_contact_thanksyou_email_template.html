@@ -4,16 +4,18 @@
  * See COPYING.txt for license details.
  */
 -->
-<!--@subject {{trans "Contact Form"}} @-->
+<!--@subject {{trans "Thanks you for contact us"}} @-->
 <!--@vars {
 "template config_path=\"design\/email\/footer_template\"":"Email Footer Template",
 "template config_path=\"design\/email\/header_template\"":"Email Header Template",
 "var store_name":"Store Owner Name",
+"var thanksmessage":"Thanks you message",
 "var message":"contact message",
 "store url=\"\"":"Store URL"
 } @-->
 {{template config_path="design/email/header_template"}}
+<p class="greeting">{{var thanksmessage}}</p>
 <p>
-<strong>Customer Message:</strong> {{var message}} <br/>
+<strong>Your Message:</strong><br/> {{var message}} 
 </p>
 {{template config_path="design/email/footer_template"}}

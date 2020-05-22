@@ -42,21 +42,18 @@ class Post extends Action
             $json = $this->_objectManager->get(\Magento\Framework\Serialize\Serializer\Json::class);
             $store = $this->_objectManager->get(\Magento\Store\Model\StoreManagerInterface::class)->getStore();
             $fields = $helper->getConfig('advanced_contact/fields', $store->getId());
+            $message = $helper->getConfig('advanced_contact/thanks_message', $store->getId());
             $fields = $json->unserialize($fields);
             $info = [];
             if (count($fields)>0) {
                 foreach ($fields as $field) {
-                    try {
-                        if ($this->getRequest()->getParam($field['key'])) {
-                            $info[] = [
-                                'key' => $field['key'],
-                                'label' => $field['label'],
-                                'type' => $field['field_type'],
-                                'value' => $this->getRequest()->getParam($field['key'])
-                            ];
-                        }
-                    } catch (\Exception $e) {
-
+                    if ($this->getRequest()->getParam($field['key'])) {
+                        $info[] = [
+                            'key' => $field['key'],
+                            'label' => $field['label'],
+                            'type' => $field['field_type'],
+                            'value' => $this->getRequest()->getParam($field['key'])
+                        ];
                     }
                 }
             }
@@ -68,12 +65,18 @@ class Post extends Action
                     if ($model->getId()) {
                         $email = $this->_objectManager->get(\Ecomteck\AdvancedContact\Helper\Email::class);
                         $email->receive($model, $store->getId());
+                        if(!$message){
+                            $message = __('Thanks for contacting us with your comments and questions. We\'ll respond to you very soon.');
+                        }
                         $messageManager = $this->_objectManager
                             ->get(\Magento\Framework\Message\ManagerInterface::class);
-                        $messageManager->addSuccess(__('Thanks for contacting us with your comments and questions. We\'ll respond to you very soon.'));
+                        $messageManager->addSuccess($message);
                     }
                 } catch (\Exception $e) {
-
+                    $this->messageManager->addError(
+                        __('Sorry, We can\'t save contact messasge or send emails. Please try again later.')
+                    );
+                    $this->messageManager->addError($e->getMessage());
                 }
             }
         }

@@ -56,13 +56,26 @@ class Email extends \Ecomteck\AdvancedContact\Helper\Data
     public function receive(\Ecomteck\AdvancedContact\Model\Request $request, $storeId = 0)
     {
         $to = $this->getConfig('advanced_contact/send_to');
+        $send_thanksyou = $this->getConfig('advanced_contact/send_thanksyou');
+        $store_owner = $this->scopeConfig->getValue(
+            'general/store_information/name',
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+        );
+        $store_owner = $store_owner?$store_owner:'Store Owner';
         if ((bool)$to !== false) {
             $info = $request->getData('info');
             $info = $this->_json->unserialize($info);
             if (is_array($info) && count($info)>0) {
                 foreach ($info as $field) {
                     if (@$field['type'] == self::EMAIL_TYPE) {
-                        $this->send($field['value'], $to, $this->toVars($info), $storeId);
+                        $vars = $this->toVars($info);
+                        $vars['store_name'] = $store_owner;
+                        $from = ['name'=>'Customer Contact', 'email' => $field['value']];
+                        $this->send($from, $to, $vars, $storeId);
+                        if($send_thanksyou){
+                            $from = ['name'=>$store_owner, 'email' => $to];
+                            $this->sendThanksyou($from, $field['value'], $vars, $storeId);
+                        }
                     }
                 }
             }
@@ -107,13 +120,48 @@ class Email extends \Ecomteck\AdvancedContact\Helper\Data
                     'area' => \Magento\Framework\App\Area::AREA_FRONTEND,
                     'store' => $storeId
                 ]);
-            $transport->addTo([$to]);
-            $transport->setFrom(['name'=>__('Customer'), 'email' => $from]);
+            $to = (is_array($to) && isset($to[0]))?$to[0]:$to;
+            $transport->addTo($to);
+            $transport->setFrom($from);
             $transport->setTemplateVars($vars);
             $transport->getTransport()->sendMessage();
             $translator->resume();
         } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 
+    /**
+     * send function
+     *
+     * @param $from
+     * @param $to
+     * @param $vars
+     * @param int $storeId
+     */
+    public function sendThanksyou($from, $to, $vars, $storeId = 0)
+    {
+        $translator = ObjectManager::getInstance()->get(\Magento\Framework\Translate\Inline\StateInterface::class);
+        $transport = ObjectManager::getInstance()->get(\Magento\Framework\Mail\Template\TransportBuilder::class);
+        try {
+            $translator->suspend();
+            $transport->setTemplateIdentifier(
+                $this->getConfig('advanced_contact/thanksyou_email_template', $storeId)
+            );
+            $transport->setTemplateOptions([
+                    'area' => \Magento\Framework\App\Area::AREA_FRONTEND,
+                    'store' => $storeId
+                ]);
+            $thanksyou_message = $this->getConfig('advanced_contact/thanks_message', $storeId);
+            $vars['thanksmessage'] = $thanksyou_message;
+            $to = (is_array($to) && isset($to[0]))?$to[0]:$to;
+            $transport->addTo($to);
+            $transport->setFrom($from);
+            $transport->setTemplateVars($vars);
+            $transport->getTransport()->sendMessage();
+            $translator->resume();
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
     }
 }

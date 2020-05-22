@@ -54,6 +54,28 @@
 						<field id="advanced_contact_active">1</field>
 					</depends>
 				</field>
+				<field id="thanks_message" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Thanks you message</label>
+					<comment>Input thanks you message after submit form.</comment>
+					<depends>
+						<field id="advanced_contact_active">1</field>
+					</depends>
+				</field>
+				
+				<field id="send_thanksyou" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Send thanks you email</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+						<field id="advanced_contact_active">1</field>
+					</depends>
+				</field>
+				<field id="thanksyou_email_template" translate="label comment" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Thanks You Email Template</label>
+					<source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+					<depends>
+						<field id="advanced_contact_active">1</field>
+					</depends>
+				</field>
 			</group>
 		</section>
 	</system>

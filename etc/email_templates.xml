@@ -27,4 +27,11 @@
 			  type="html"
 			  module="Ecomteck_AdvancedContact"
 			  area="frontend" />
+
+	<template id="contact_advanced_contact_thanksyou_email_template"
+			  label="Advanced Contact Thanks You Email Template"
+			  file="ecomteck_advanced_contact_thanksyou_email_template.html"
+			  type="html"
+			  module="Ecomteck_AdvancedContact"
+			  area="frontend" />
 </config>

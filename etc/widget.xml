@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Ecomteck
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Ecomteck.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.ecomteck.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Ecomteck
+ * @package     Ecomteck_AdvancedContact
+ * @copyright   Copyright (c) Ecomteck (https://www.ecomteck.com/)
+ * @license     https://www.ecomteck.com/LICENSE.txt
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="ec_advancedcontact" class="Ecomteck\AdvancedContact\Block\Widget\ContactForm">
+        <label translate="true">Ecomteck AdvancedContact: Contact Form</label>
+        <description translate="true">Show a contact form</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" visible="true" required="true">
+                <label translate="true">Title</label>
+                <description><![CDATA[Input block title, empty to hide.]]></description>
+            </parameter>
+            <parameter name="custom_template" xsi:type="text" visible="true" required="false">
+                <label translate="true">Custom Template</label>
+                <description><![CDATA[Input custom template file path. Example: Ecomteck_AdvancedContact::widget/form.phtml]]></description>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

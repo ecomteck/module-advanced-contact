@@ -25,9 +25,12 @@
 		<contact>
 			<advanced_contact>
 				<advanced_contact_active>1</advanced_contact_active>
-				<email_template>ecomteck_advanced_contact_general_email_template</email_template>
+				<email_template>contact_advanced_contact_email_template</email_template>
 				<fields>[{"key":"email","label":"E-Mail","field_class":"required validate-email","field_type":"email"},{"key":"message","label":"Message","field_class":"required","field_type":"textarea"}]</fields>
 				<send_to>ecomteck@gmail.com</send_to>
+				<thanks_message>Thanks for contacting us with your comments and questions. We'll respond to you very soon.</thanks_message>
+				<send_thanksyou>0</send_thanksyou>
+				<thanksyou_email_template>contact_advanced_contact_thanksyou_email_template</thanksyou_email_template>
 			</advanced_contact>
 		</contact>
 	</default>
